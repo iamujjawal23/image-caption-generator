@@ -16,6 +16,4 @@ Click the button below to instantly deploy this project live on the internet usi
 ### Manual Instructions
 1. Fork or push this repository to your GitHub.
 2. Sign in to [Render](https://render.com).
-3. Connect your GitHub and select this repository. it will automatically use the `render.yaml` to spin up the server!
-
-*(Note to owner: Once deployed via Render, you can click the settings gear on your GitHub repository page and paste your new `.onrender.com` link into the "Website" URL field so everyone can find it!)*
+3. Connect your GitHub and select this repository. It will automatically use the `render.yaml` to spin up the server!
