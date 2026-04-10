@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Caption Generator</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dynamic particle background -->
+    <canvas id="particleCanvas"></canvas>
+    <div class="ambient-glow"></div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-cube logo-icon"></i>
+                <span>Image Caption Generator</span>
+            </div>
+            <p class="subtitle">State-of-the-art Image Understanding</p>
+        </header>
+
+        <main class="glass-panel" id="mainPanel">
+            <div class="panel-inner">
+                <div class="upload-section" id="uploadArea">
+                    <input type="file" id="imageInput" accept="image/jpeg, image/png, image/jpg" hidden>
+                    <div class="upload-content">
+                        <div class="icon-pulse-container">
+                            <i class="fa-solid fa-cloud-arrow-up cloud-icon"></i>
+                        </div>
+                        <h2>Upload an image</h2>
+                        <p>Drag and drop or click to browse</p>
+                        <div class="file-badges">
+                            <span class="badge">JPG</span>
+                            <span class="badge">PNG</span>
+                            <span class="badge max-size">MAX 5MB</span>
+                        </div>
+                    </div>
+                    <!-- Image Preview Area -->
+                    <div class="image-preview-container" id="imagePreviewContainer">
+                        <div class="preview-wrapper">
+                            <img id="imagePreview" src="" alt="Image Preview">
+                            <div class="image-overlay"></div>
+                        </div>
+                        <button class="remove-btn" id="removeImageBtn" title="Remove image">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="action-section">
+                    <button id="generateBtn" class="primary-btn" disabled>
+                        <span class="btn-text">Generate Caption</span>
+                        <i class="fa-solid fa-arrow-right btn-icon"></i>
+                        <span class="btn-shimmer"></span>
+                    </button>
+                </div>
+
+                <div class="result-section" id="resultSection">
+                    <!-- Skeleton Loader -->
+                    <div class="skeleton-loader" id="loader">
+                        <div class="analysis-step">
+                            <i class="fa-solid fa-microchip pulse"></i>
+                            <span>Extracting features using ConvNet...</span>
+                        </div>
+                        <div class="shimmer-lines">
+                            <div class="shimmer-line title"></div>
+                            <div class="shimmer-line"></div>
+                            <div class="shimmer-line short"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Result -->
+                    <div class="caption-container" id="captionContainer">
+                        <div class="caption-header">
+                            <h3><i class="fa-solid fa-sparkles"></i> AI Generated Caption</h3>
+                            <button class="action-icon-btn copy-btn" id="copyBtn" title="Copy to clipboard">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="caption-box">
+                            <p id="captionText"></p>
+                            <span class="cursor" id="typeCursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-pills">
+                <span class="pill"><i class="fa-brands fa-python"></i> FastAPI</span>
+                <span class="pill"><i class="fa-solid fa-brain"></i> TensorFlow</span>
+                <span class="pill status-ready"><span class="dot"></span> System Online</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
